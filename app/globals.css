@@ -1,28 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: 'Cinzel', serif;
+  --font-display: 'Lora', serif;
   --font-body: 'Nunito', sans-serif;
-  --bg: #0f1729;
-  --card: #1e2d4a;
-  --card-light: #263556;
+  --bg: #f7f3ed;
+  --bg2: #efe9e0;
+  --card: #ffffff;
+  --card2: #faf7f2;
   --white: #ffffff;
-  --gold: #f0c040;
-  --gold-dark: #c49a20;
-  --gold-light: #fef3c7;
-  --emerald: #34d399;
-  --emerald-dark: #059669;
-  --purple: #a78bfa;
-  --purple-dark: #7c3aed;
-  --red: #f87171;
-  --gray: #94a3b8;
-  --gray-light: #2d3f5a;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
+  --green: #4a7c59;
+  --green-light: #6ba37a;
+  --green-dark: #2d5a3d;
+  --sky: #6b9ab8;
+  --sky-light: #9bbdd4;
+  --earth: #8b6914;
+  --earth-light: #b8922a;
+  --rust: #c0614a;
+  --gray: #8a8070;
+  --gray-light: #e8e2d8;
+  --text: #2c2416;
+  --text-muted: #7a7060;
+  --border: #d4cabb;
 }
 
 * { box-sizing: border-box; }
@@ -34,9 +36,8 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  background-image: 
-    radial-gradient(ellipse at 30% 20%, rgba(240,192,64,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(52,211,153,0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 60%);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(107,163,122,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(107,154,184,0.06) 0%, transparent 50%);
   min-height: 100vh;
 }

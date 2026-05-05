@@ -102,7 +102,7 @@ export default function Home() {
     return (
       <div style={{
         position: 'fixed', inset: 0,
-        background: 'radial-gradient(ellipse at center, #1a0e35 0%, #080414 100%)',
+        background: '#f7f3ed',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         padding: '32px 24px', textAlign: 'center',
@@ -112,43 +112,43 @@ export default function Home() {
             from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
           }
-          @keyframes starTwinkle {
-            0%,100% { opacity: 0.3; } 50% { opacity: 1; }
+          @keyframes leafSway {
+            0%,100% { opacity: 0.25; transform: rotate(-8deg); }
+            50% { opacity: 0.5; transform: rotate(8deg); }
           }
         `}</style>
 
-        {['10%,15%','85%,20%','5%,70%','90%,65%','50%,8%'].map((pos, i) => {
+        {['8%,12%','88%,18%','4%,72%','92%,68%','48%,6%'].map((pos, i) => {
           const [left, top] = pos.split(',');
           return (
             <div key={i} style={{
               position: 'absolute', left, top,
-              fontSize: ['16px','12px','18px','10px','14px'][i],
-              animation: `starTwinkle ${1.5 + i * 0.4}s ease-in-out infinite`,
-              animationDelay: `${i * 0.3}s`,
-              color: '#f0c040',
-            }}>✦</div>
+              fontSize: ['18px','14px','20px','12px','16px'][i],
+              animation: `leafSway ${2 + i * 0.5}s ease-in-out infinite`,
+              animationDelay: `${i * 0.4}s`,
+              color: '#4a7c59',
+            }}>✿</div>
           );
         })}
 
-        <div style={{ animation: 'fadeUp 0.6s ease', marginBottom: '8px' }}>
+        <div style={{ animation: 'fadeUp 0.6s ease', marginBottom: '6px' }}>
           <div style={{
-            fontFamily: 'Cinzel, serif', fontSize: '32px',
-            color: '#f0c040', textShadow: '0 0 20px rgba(240,192,64,0.5)',
-            letterSpacing: '0.05em',
-          }}>Hagrit</div>
+            fontFamily: 'Lora, serif', fontSize: '30px',
+            color: '#2d5a3d', letterSpacing: '0.03em',
+          }}>やわらかの旅</div>
         </div>
 
         <div style={{
           animation: 'fadeUp 0.7s ease', marginBottom: '40px',
-          fontSize: '15px', color: '#c4a8f0',
-          fontFamily: 'Nunito, sans-serif', fontWeight: 700,
-          lineHeight: 1.7,
+          fontSize: '15px', color: '#7a7060',
+          fontFamily: 'Nunito, sans-serif', fontWeight: 600,
+          lineHeight: 1.8,
         }}>
-          7日間、仲間の気配を感じながら<br />習慣をやり切ろう
+          5分だけ、ここにいていいですよ。<br />何かを変えようとしなくていいです。
         </div>
 
         <div style={{
-          display: 'flex', flexDirection: 'column', gap: '16px',
+          display: 'flex', flexDirection: 'column', gap: '14px',
           width: '100%', maxWidth: '320px',
           animation: 'fadeUp 0.8s ease',
         }}>
@@ -159,27 +159,28 @@ export default function Home() {
             }}
             style={{
               padding: '20px 24px',
-              borderRadius: '16px',
-              border: '2px solid rgba(240,192,64,0.4)',
-              background: 'linear-gradient(135deg, rgba(240,192,64,0.15), rgba(240,192,64,0.05))',
-              color: '#f0c040',
+              borderRadius: '18px',
+              border: '2px solid rgba(74,124,89,0.35)',
+              background: 'linear-gradient(135deg, rgba(74,124,89,0.1), rgba(107,163,122,0.05))',
+              color: '#2d5a3d',
               fontFamily: 'Nunito, sans-serif',
               cursor: 'pointer',
               textAlign: 'left',
               position: 'relative',
+              boxShadow: '0 2px 12px rgba(74,124,89,0.1)',
             }}
           >
             <div style={{
               position: 'absolute', top: '-10px', left: '16px',
-              background: 'linear-gradient(135deg, #f0c040, #c49a20)',
-              color: '#0f1729', fontSize: '11px', fontWeight: 800,
+              background: '#4a7c59',
+              color: '#fff', fontSize: '11px', fontWeight: 800,
               padding: '2px 10px', borderRadius: '100px',
-              fontFamily: 'Cinzel, serif', letterSpacing: '0.05em',
+              fontFamily: 'Nunito, sans-serif', letterSpacing: '0.03em',
             }}>おすすめ</div>
-            <div style={{ fontSize: '20px', fontWeight: 800, marginBottom: '4px' }}>
-              ⏱ まずは5分だけやってみる
+            <div style={{ fontSize: '18px', fontWeight: 800, marginBottom: '4px', color: '#2d5a3d' }}>
+              まずは5分だけやってみる
             </div>
-            <div style={{ fontSize: '13px', color: '#c4a8f0', fontWeight: 600 }}>
+            <div style={{ fontSize: '13px', color: '#6ba37a', fontWeight: 600 }}>
               タイマーを使って今すぐスタート
             </div>
           </button>
@@ -191,19 +192,20 @@ export default function Home() {
             }}
             style={{
               padding: '18px 24px',
-              borderRadius: '16px',
-              border: '1px solid rgba(196,168,240,0.2)',
-              background: 'rgba(196,168,240,0.05)',
-              color: '#c4a8f0',
+              borderRadius: '18px',
+              border: '1px solid #d4cabb',
+              background: '#ffffff',
+              color: '#4a4030',
               fontFamily: 'Nunito, sans-serif',
               cursor: 'pointer',
               textAlign: 'left',
+              boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
             }}
           >
-            <div style={{ fontSize: '18px', fontWeight: 800, marginBottom: '4px' }}>
-              🔮 自由に設定する
+            <div style={{ fontSize: '17px', fontWeight: 800, marginBottom: '4px' }}>
+              自分で設定する
             </div>
-            <div style={{ fontSize: '13px', color: '#7a6a9a', fontWeight: 600 }}>
+            <div style={{ fontSize: '13px', color: '#8a8070', fontWeight: 600 }}>
               ニックネームと習慣を自分で決める
             </div>
           </button>
@@ -217,7 +219,7 @@ export default function Home() {
     return (
       <div style={{
         position: 'fixed', inset: 0,
-        background: 'radial-gradient(ellipse at center, #1a0e35 0%, #080414 100%)',
+        background: '#f7f3ed',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         zIndex: 9999, padding: '24px',
@@ -324,10 +326,10 @@ export default function Home() {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#f7f3ed' }}>
       <div style={{ textAlign: 'center' }}>
-        <div style={{ fontFamily: 'Cinzel, serif', fontSize: 30, color: '#f0c040', textShadow: '0 0 20px rgba(240,192,64,0.5)', marginBottom: 12 }}>Hagrit</div>
-        <div style={{ color: '#94a3b8', fontSize: 14, fontWeight: 700 }}>読み込み中...</div>
+        <div style={{ fontFamily: 'Lora, serif', fontSize: 26, color: '#2d5a3d', marginBottom: 12 }}>やわらかの旅</div>
+        <div style={{ color: '#8a8070', fontSize: 14, fontWeight: 600 }}>よみこみ中...</div>
       </div>
     </div>
   );

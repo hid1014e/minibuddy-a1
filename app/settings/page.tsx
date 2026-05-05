@@ -80,7 +80,7 @@ export default function SettingsPage() {
 
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-      <div style={{ fontFamily: 'Cinzel, serif', fontSize: 28, color: '#f0c040', textShadow: '0 0 20px rgba(240,192,64,0.5)' }}>Hagrit</div>
+      <div style={{ fontFamily: 'Lora, serif', fontSize: 24, color: '#2d5a3d' }}>やわらかの旅</div>
     </div>
   );
 
@@ -152,7 +152,7 @@ export default function SettingsPage() {
             {blockList.map(b => (
               <div key={b.userId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0f1729', borderRadius: 10, padding: '10px 14px', border: '1px solid #2d3f5a' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/screen%203.png?v=2" alt="" style={{ width: 24, height: 24, objectFit: 'contain' }} />
+                  <img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/sun.png" alt="" style={{ width: 24, height: 24, objectFit: 'contain' }} />
                   <span style={{ fontFamily: 'Nunito, sans-serif', fontSize: 14, fontWeight: 800, color: '#f1f5f9' }}>{b.nickname}</span>
                 </div>
                 <button

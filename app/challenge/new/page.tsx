@@ -47,8 +47,8 @@ function NewChallengeForm() {
       `}</style>
 
       <div style={{ textAlign: 'center', marginBottom: showProgress ? 16 : 28, animation: 'fadeUp 0.4s ease' }}>
-        <div style={{ fontFamily: 'Cinzel, serif', fontSize: 30, color: '#f0c040', textShadow: '0 0 20px rgba(240,192,64,0.5)' }}>
-          Hagrit
+        <div style={{ fontFamily: 'Lora, serif', fontSize: 26, color: '#2d5a3d' }}>
+          やわらかの旅
         </div>
       </div>
 
@@ -65,18 +65,18 @@ function NewChallengeForm() {
       )}
 
       <div style={{ textAlign: 'center', marginBottom: 28, animation: 'fadeUp 0.5s ease' }}>
-        <div style={{ fontSize: 52, animation: 'float 3s ease-in-out infinite', display: 'inline-block', marginBottom: 12 }}>🪄</div>
-        <div style={{ fontFamily: 'Cinzel, serif', fontSize: 20, color: '#f1f5f9', marginBottom: 8 }}>
-          習慣の魔法を解き放て
+        <div style={{ fontSize: 48, animation: 'float 3s ease-in-out infinite', display: 'inline-block', marginBottom: 12 }}>🌿</div>
+        <div style={{ fontFamily: 'Lora, serif', fontSize: 19, color: '#2c2416', marginBottom: 8 }}>
+          7日間、小さく続けてみよう
         </div>
-        <p style={{ fontSize: 14, color: '#94a3b8', lineHeight: 1.8, margin: 0 }}>
-          7日間の小さな積み重ねが<br />あなたを変える。
+        <p style={{ fontSize: 14, color: '#7a7060', lineHeight: 1.8, margin: 0 }}>
+          できなくても大丈夫。<br />ここに記録するだけでいいです。
         </p>
       </div>
 
       {/* リアプレイ猿の予告バナー */}
       <div style={{ background: 'rgba(30,45,74,0.8)', border: '1px solid rgba(167,139,250,0.25)', borderRadius: 14, padding: '12px 16px', marginBottom: 20, animation: 'fadeUp 0.55s ease', display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div style={{ flexShrink: 0 }}><img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/monkey-wizard.png" width={40} height={40} alt="" style={{ borderRadius: 8 }} /></div>
+        <div style={{ flexShrink: 0 }}><img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png" width={40} height={40} alt="" style={{ borderRadius: 8 }} /></div>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 10, color: '#a78bfa', fontFamily: 'Cinzel, serif', letterSpacing: '0.08em', marginBottom: 3 }}>リアプレイ猿より</div>
           <div style={{ fontSize: 12, color: '#c4a8f0', fontFamily: 'Nunito, sans-serif', fontWeight: 700, lineHeight: 1.6 }}>7日後、修行の結果を届けに来るぞ。<br />楽しみにしておけ。</div>
@@ -84,8 +84,8 @@ function NewChallengeForm() {
       </div>
 
       {/* テーマ選択 */}
-      <div style={{ background: '#1e2d4a', borderRadius: 20, padding: 20, marginBottom: 14, animation: 'fadeUp 0.6s ease', border: '1px solid #2d3f5a' }}>
-        <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, color: '#f0c040', marginBottom: 14, letterSpacing: '0.05em' }}>
+      <div style={{ background: '#ffffff', borderRadius: 20, padding: 20, marginBottom: 14, animation: 'fadeUp 0.6s ease', border: '1px solid #d4cabb', boxShadow: '0 2px 10px rgba(0,0,0,0.04)' }}>
+        <div style={{ fontFamily: 'Lora, serif', fontSize: 13, color: '#4a7c59', marginBottom: 14, fontWeight: 600 }}>
           カテゴリ <span style={{ fontSize: 11, fontFamily: 'Nunito, sans-serif', color: '#94a3b8', fontWeight: 600 }}>（任意）</span>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
@@ -99,8 +99,8 @@ function NewChallengeForm() {
       </div>
 
       {/* 目標入力 */}
-      <div style={{ background: '#1e2d4a', borderRadius: 20, padding: 20, marginBottom: 20, animation: 'fadeUp 0.65s ease', border: '1px solid #2d3f5a' }}>
-        <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, color: '#f0c040', marginBottom: 4, letterSpacing: '0.05em' }}>
+      <div style={{ background: '#ffffff', borderRadius: 20, padding: 20, marginBottom: 20, animation: 'fadeUp 0.65s ease', border: '1px solid #d4cabb', boxShadow: '0 2px 10px rgba(0,0,0,0.04)' }}>
+        <div style={{ fontFamily: 'Lora, serif', fontSize: 13, color: '#4a7c59', marginBottom: 4, fontWeight: 600 }}>
           7日間の目標 <span style={{ fontSize: 11, fontFamily: 'Nunito, sans-serif', color: '#f87171', fontWeight: 700 }}>必須</span>
         </div>
         <div style={{ fontSize: 12, color: '#94a3b8', fontWeight: 700, marginBottom: 12 }}>
@@ -112,13 +112,13 @@ function NewChallengeForm() {
           onKeyDown={e => e.key === 'Enter' && handleStart()}
           placeholder="具体的な目標を入力"
           maxLength={40}
-          style={{ width: '100%', padding: '14px 16px', border: `1.5px solid ${canStart ? (selectedThemeData?.border ?? '#34d399') : '#2d3f5a'}`, borderRadius: 12, fontSize: 15, fontFamily: 'Nunito, sans-serif', fontWeight: 700, color: '#f1f5f9', background: '#0f1729', transition: 'all 0.15s', boxSizing: 'border-box' as const, outline: 'none' }}
+          style={{ width: '100%', padding: '14px 16px', border: `1.5px solid ${canStart ? (selectedThemeData?.border ?? '#34d399') : '#2d3f5a'}`, borderRadius: 12, fontSize: 15, fontFamily: 'Nunito, sans-serif', fontWeight: 700, color: '#2c2416', background: '#fafaf8', transition: 'all 0.15s', boxSizing: 'border-box' as const, outline: 'none' }}
         />
         <div style={{ textAlign: 'right', fontSize: 11, color: '#94a3b8', fontWeight: 700, marginTop: 6 }}>{goal.length}/40</div>
       </div>
 
-      <button onClick={handleStart} disabled={!canStart || loading} className="start-btn" style={{ width: '100%', padding: '17px', borderRadius: 16, border: 'none', background: (!canStart || loading) ? '#1e2d4a' : 'linear-gradient(135deg, #f0c040, #c49a20)', color: (!canStart || loading) ? '#2d3f5a' : '#0f1729', fontFamily: 'Cinzel, serif', fontSize: 17, fontWeight: 700, cursor: (!canStart || loading) ? 'not-allowed' : 'pointer', boxShadow: (!canStart || loading) ? 'none' : '0 6px 0 #8a6000, 0 0 30px rgba(240,192,64,0.3)', transition: 'all 0.15s', animation: 'fadeUp 0.7s ease', letterSpacing: '0.05em' }}>
-        {loading ? '起動中...' : selectedThemeData ? `${selectedThemeData.icon} 修行開始！` : '✦ 修行開始！'}
+      <button onClick={handleStart} disabled={!canStart || loading} className="start-btn" style={{ width: '100%', padding: '17px', borderRadius: 16, border: 'none', background: (!canStart || loading) ? '#e8e2d8' : '#4a7c59', color: (!canStart || loading) ? '#a09888' : '#ffffff', fontFamily: 'Cinzel, serif', fontSize: 17, fontWeight: 700, cursor: (!canStart || loading) ? 'not-allowed' : 'pointer', boxShadow: (!canStart || loading) ? 'none' : '0 4px 0 #2d5a3d, 0 0 20px rgba(74,124,89,0.2)', transition: 'all 0.15s', animation: 'fadeUp 0.7s ease', letterSpacing: '0.05em' }}>
+        {loading ? '準備中...' : selectedThemeData ? `${selectedThemeData.icon} 始める` : 'はじめる'}
       </button>
     </div>
   );

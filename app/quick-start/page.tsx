@@ -44,37 +44,6 @@ function generateNickname() {
 type Phase = 'timer' | 'form' | 'done' | 'saving';
 const TOTAL_SEC = 5 * 60;
 
-const CARD_GRADIENTS = [
-  'linear-gradient(135deg, rgba(240,192,64,0.18), rgba(240,192,64,0.06))',
-  'linear-gradient(135deg, rgba(139,92,246,0.18), rgba(109,40,217,0.06))',
-  'linear-gradient(135deg, rgba(240,192,64,0.14), rgba(139,92,246,0.10))',
-  'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(240,192,64,0.08))',
-  'linear-gradient(135deg, rgba(196,168,240,0.14), rgba(139,92,246,0.06))',
-];
-const CARD_BORDERS_ACTIVE = [
-  'rgba(240,192,64,0.7)',
-  'rgba(139,92,246,0.8)',
-  'rgba(240,192,64,0.65)',
-  'rgba(139,92,246,0.75)',
-  'rgba(196,168,240,0.7)',
-];
-const CARD_BORDERS_IDLE = [
-  'rgba(240,192,64,0.2)',
-  'rgba(139,92,246,0.25)',
-  'rgba(240,192,64,0.18)',
-  'rgba(139,92,246,0.2)',
-  'rgba(196,168,240,0.18)',
-];
-const CARD_TEXT_ACTIVE = ['#f0c040', '#c4a8f0', '#f0c040', '#c4a8f0', '#c4a8f0'];
-const CARD_TEXT_IDLE = ['#c9a84c', '#9b7fd4', '#c9a84c', '#9b7fd4', '#9b7fd4'];
-const CARD_GLOWS = [
-  '0 0 20px rgba(240,192,64,0.35)',
-  '0 0 20px rgba(139,92,246,0.4)',
-  '0 0 20px rgba(240,192,64,0.3)',
-  '0 0 20px rgba(139,92,246,0.35)',
-  '0 0 20px rgba(196,168,240,0.3)',
-];
-
 export default function QuickStartPage() {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>('timer');
@@ -197,23 +166,23 @@ export default function QuickStartPage() {
   // ── タイマー画面 ──────────────────────────────────────────
   if (phase === 'timer') {
     return (
-      <div className="min-h-screen bg-[#0e0b1a] flex flex-col items-center justify-center px-4 pb-8">
-        <p className="text-amber-300/60 text-xs tracking-widest uppercase mb-3 font-light">
-          5 minute quest
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 pb-8" style={{ background: '#f7f3ed' }}>
+        <p style={{ color: '#6ba37a', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '12px', fontWeight: 600 }}>
+          5 minute start
         </p>
-        <h1 className="text-white text-xl font-semibold mb-6 tracking-wide text-center leading-relaxed">
-          5分だけ。<br />
-          <span className="text-white/40 text-base font-normal">人は大体5分なら騙せます</span>
+        <h1 style={{ color: '#2c2416', fontSize: '20px', fontWeight: 700, marginBottom: '24px', textAlign: 'center', lineHeight: 1.7, fontFamily: 'Lora, serif' }}>
+          手をつけてくれてありがとう。<br />
+          <span style={{ color: '#7a7060', fontSize: '15px', fontWeight: 400, fontFamily: 'Nunito, sans-serif' }}>ごゆっくりどうぞ。</span>
         </h1>
 
         {/* タイマーリング */}
         <div className="relative flex items-center justify-center mb-8">
           <svg width="210" height="210" className="-rotate-90">
-            <circle cx="105" cy="105" r={R} fill="none" stroke="#1e1730" strokeWidth="10" />
+            <circle cx="105" cy="105" r={R} fill="none" stroke="#e0dbd0" strokeWidth="10" />
             <circle
               cx="105" cy="105" r={R}
               fill="none"
-              stroke={running ? '#f59e0b' : '#6b5aff'}
+              stroke={running ? '#4a7c59' : '#6b9ab8'}
               strokeWidth="10"
               strokeLinecap="round"
               strokeDasharray={CIRC}
@@ -222,20 +191,18 @@ export default function QuickStartPage() {
             />
           </svg>
           <div className="absolute flex flex-col items-center">
-            <span className="text-white text-5xl font-mono font-bold tracking-tight">
+            <span style={{ color: '#2c2416', fontSize: '48px', fontFamily: 'monospace', fontWeight: 700, letterSpacing: '-0.02em' }}>
               {mm}:{ss}
             </span>
-            <span className="text-white/30 text-xs mt-1 tracking-widest">remaining</span>
+            <span style={{ color: '#7a7060', fontSize: '11px', marginTop: '4px', letterSpacing: '0.15em' }}>remaining</span>
           </div>
         </div>
 
         {/* おすすめ例 */}
         <div className="w-full max-w-xs mb-8">
-          <p className="text-white/30 text-xs text-center mb-3 tracking-widest uppercase">
-            suggested quests
-          </p>
+          <p style={{ color: '#7a7060', fontSize: '11px', textAlign: 'center', marginBottom: '12px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>suggested</p>
           <div className="flex flex-col gap-3">
-            {TIMER_EXAMPLES.map((ex, i) => {
+            {TIMER_EXAMPLES.map((ex) => {
               const active = tappedExample === ex.text;
               return (
                 <button
@@ -246,30 +213,24 @@ export default function QuickStartPage() {
                     textAlign: 'left',
                     padding: '14px 18px',
                     borderRadius: '16px',
-                    border: `1.5px solid ${active ? CARD_BORDERS_ACTIVE[i % CARD_BORDERS_ACTIVE.length] : CARD_BORDERS_IDLE[i % CARD_BORDERS_IDLE.length]}`,
-                    background: active ? CARD_GRADIENTS[i % CARD_GRADIENTS.length].replace('0.18', '0.28').replace('0.14', '0.22') : CARD_GRADIENTS[i % CARD_GRADIENTS.length],
+                    border: `1.5px solid ${active ? '#4a7c59' : '#d4cabb'}`,
+                    background: active ? 'rgba(74,124,89,0.08)' : '#ffffff',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
-                    boxShadow: active ? CARD_GLOWS[i % CARD_GLOWS.length] : 'none',
+                    boxShadow: active ? '0 2px 12px rgba(74,124,89,0.15)' : '0 1px 4px rgba(0,0,0,0.04)',
                     transform: active ? 'scale(1.01)' : 'scale(1)',
                   }}
                 >
                   <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <span style={{ fontSize: '20px', filter: active ? 'drop-shadow(0 0 6px rgba(240,192,64,0.6))' : 'none' }}>{ex.icon}</span>
+                    <span style={{ fontSize: '20px' }}>{ex.icon}</span>
                     <span style={{
                       fontSize: '14px',
-                      fontWeight: 700,
+                      fontWeight: 600,
                       fontFamily: 'Nunito, sans-serif',
-                      color: active ? CARD_TEXT_ACTIVE[i % CARD_TEXT_ACTIVE.length] : CARD_TEXT_IDLE[i % CARD_TEXT_IDLE.length],
+                      color: active ? '#2d5a3d' : '#2c2416',
                       flex: 1,
                     }}>{ex.text}</span>
-                    {active && (
-                      <span style={{
-                        fontSize: '12px',
-                        color: i % 2 === 0 ? '#f0c040' : '#c4a8f0',
-                        textShadow: i % 2 === 0 ? '0 0 8px rgba(240,192,64,0.8)' : '0 0 8px rgba(196,168,240,0.8)',
-                      }}>✦</span>
-                    )}
+                    {active && <span style={{ fontSize: '14px', color: '#4a7c59' }}>✓</span>}
                   </span>
                 </button>
               );
@@ -280,16 +241,16 @@ export default function QuickStartPage() {
         {!running ? (
           <button
             onClick={startTimer}
-            className="w-full max-w-xs py-4 rounded-2xl text-white text-lg font-semibold tracking-wide bg-gradient-to-r from-violet-600 to-amber-500 shadow-[0_4px_24px_rgba(109,40,217,0.5)] hover:opacity-90 active:scale-95 transition-all duration-150"
+            style={{ width: '100%', maxWidth: '320px', padding: '16px', borderRadius: '18px', border: 'none', background: '#4a7c59', color: '#ffffff', fontSize: '17px', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 16px rgba(74,124,89,0.3)', fontFamily: 'Nunito, sans-serif' }}
           >
-            ✨ スタート
+            スタート
           </button>
         ) : (
           <div className="flex flex-col items-center gap-4 w-full max-w-xs">
-            <p className="text-white/40 text-sm tracking-wide">集中して！ずっとここにいるよ 🕯️</p>
+            <p style={{ color: '#7a7060', fontSize: '14px' }}>ゆっくりどうぞ。ここにいます。</p>
             <button
               onClick={stopEarly}
-              className="w-full py-3 rounded-2xl text-white/60 text-base font-medium border border-white/[0.08] bg-white/[0.04] hover:bg-white/[0.08] hover:text-white/80 active:scale-95 transition-all duration-150"
+              style={{ width: '100%', padding: '12px', borderRadius: '18px', border: '1px solid #d4cabb', background: '#ffffff', color: '#2c2416', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: 'Nunito, sans-serif' }}
             >
               終わった！記録する →
             </button>
@@ -302,9 +263,9 @@ export default function QuickStartPage() {
   // ── 保存中 ──────────────────────────────────────────
   if (phase === 'saving') {
     return (
-      <div className="min-h-screen bg-[#0e0b1a] flex flex-col items-center justify-center gap-4">
-        <div className="w-10 h-10 rounded-full border-2 border-amber-400 border-t-transparent animate-spin" />
-        <p className="text-white/50 text-sm tracking-wide">記録しています…</p>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4" style={{ background: '#f7f3ed' }}>
+        <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: '#4a7c59', borderTopColor: 'transparent' }} />
+        <p style={{ color: '#7a7060', fontSize: '14px' }}>記録しています…</p>
       </div>
     );
   }
@@ -312,7 +273,7 @@ export default function QuickStartPage() {
   // ── 完了画面 ──────────────────────────────────────────
   if (phase === 'done') {
     return (
-      <div className="min-h-screen bg-[#0e0b1a] flex flex-col items-center justify-center px-6">
+      <div className="min-h-screen flex flex-col items-center justify-center px-6" style={{ background: '#f7f3ed' }}>
         <style>{`
           @keyframes fadeUp {
             from { opacity: 0; transform: translateY(16px); }
@@ -323,7 +284,7 @@ export default function QuickStartPage() {
 
         {/* ヘッダー */}
         <div className="fade-up w-full max-w-xs mb-8 text-center" style={{ animationDelay: '0s' }}>
-          <p className="text-amber-300/60 text-xs tracking-widest uppercase mb-4">day 1 complete</p>
+          <p style={{ color: '#6ba37a', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '16px', fontWeight: 600 }}>day 1 complete</p>
           <div
             style={{
               display: 'inline-flex',
@@ -331,31 +292,27 @@ export default function QuickStartPage() {
               gap: '10px',
               padding: '10px 18px',
               borderRadius: '999px',
-              background: 'linear-gradient(135deg, rgba(139,92,246,0.22), rgba(109,40,217,0.10))',
-              border: '1.5px solid rgba(139,92,246,0.35)',
-              boxShadow: '0 0 18px rgba(139,92,246,0.2)',
+              background: 'rgba(74,124,89,0.08)',
+              border: '1.5px solid #d4cabb',
               marginBottom: '20px',
             }}
           >
-            <span style={{ color: '#c4a8f0', fontSize: '12px' }}>✦</span>
-            <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: 600 }}>{savedNickname}</span>
-            <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '12px' }}>·</span>
-            <span style={{ color: '#f0c040', fontSize: '14px', fontWeight: 600 }}>{savedActivity}</span>
+            <span style={{ color: '#4a7c59', fontSize: '14px', fontWeight: 600 }}>{savedNickname}</span>
+            <span style={{ color: '#d4cabb', fontSize: '12px' }}>·</span>
+            <span style={{ color: '#2d5a3d', fontSize: '14px', fontWeight: 600 }}>{savedActivity}</span>
           </div>
           <h1
             style={{
-              fontSize: '26px',
+              fontSize: '28px',
               fontWeight: 700,
-              letterSpacing: '0.02em',
-              background: 'linear-gradient(135deg, #f0c040 0%, #c4a8f0 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#2d5a3d',
+              fontFamily: 'Lora, serif',
               marginBottom: '8px',
             }}
           >
-            お疲れ様でした☕️
+            お疲れ様でした。
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>1日目を刻んだ</p>
+          <p style={{ color: '#7a7060', fontSize: '15px', fontWeight: 600 }}>1日目、ちゃんと残りましたよ。</p>
         </div>
 
         {/* ステータスカード */}
@@ -363,56 +320,33 @@ export default function QuickStartPage() {
           <div
             style={{
               borderRadius: '20px',
-              border: '1px solid rgba(255,255,255,0.07)',
-              background: 'linear-gradient(160deg, rgba(139,92,246,0.08) 0%, rgba(14,11,26,0.6) 100%)',
+              border: '1px solid #d4cabb',
+              background: '#ffffff',
               overflow: 'hidden',
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '18px 22px',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-              }}
-            >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 22px', borderBottom: '1px solid #e8e2d8' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '22px', filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }}>🔥</span>
-                <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: '15px' }}>連続記録</span>
+                <span style={{ fontSize: '22px' }}>🔥</span>
+                <span style={{ color: '#7a7060', fontSize: '15px' }}>連続記録</span>
               </div>
-              <span style={{ color: '#fbbf24', fontSize: '20px', fontWeight: 700, textShadow: '0 0 12px rgba(251,191,36,0.5)' }}>1日</span>
+              <span style={{ color: '#2d5a3d', fontSize: '20px', fontWeight: 700 }}>1日</span>
             </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '18px 22px',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-              }}
-            >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 22px', borderBottom: '1px solid #e8e2d8' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '22px', filter: 'drop-shadow(0 0 8px rgba(167,139,250,0.6))' }}>✨</span>
-                <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: '15px' }}>今日の達成者</span>
+                <span style={{ fontSize: '22px' }}>✨</span>
+                <span style={{ color: '#7a7060', fontSize: '15px' }}>今日の達成者</span>
               </div>
-              <span style={{ color: '#c4a8f0', fontSize: '20px', fontWeight: 700, textShadow: '0 0 12px rgba(196,168,240,0.5)' }}>
+              <span style={{ color: '#4a7c59', fontSize: '20px', fontWeight: 700 }}>
                 {todayCount !== null ? `${todayCount}人` : '…'}
               </span>
             </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '18px 22px',
-              }}
-            >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 22px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '22px', filter: 'drop-shadow(0 0 8px rgba(52,211,153,0.5))' }}>🚀</span>
-                <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: '15px' }}>チャレンジ</span>
+                <span style={{ fontSize: '22px' }}>🚀</span>
+                <span style={{ color: '#7a7060', fontSize: '15px' }}>チャレンジ</span>
               </div>
-              <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '15px', fontWeight: 600 }}>7日間スタート</span>
+              <span style={{ color: '#2c2416', fontSize: '15px', fontWeight: 600 }}>7日間スタート</span>
             </div>
           </div>
         </div>
@@ -427,8 +361,7 @@ export default function QuickStartPage() {
             localStorage.removeItem('qs_in_progress');
             router.push('/');
           }}
-          className="fade-up w-full max-w-xs py-4 rounded-2xl text-white text-lg font-semibold tracking-wide bg-gradient-to-r from-violet-600 to-amber-500 shadow-[0_4px_24px_rgba(109,40,217,0.5)] hover:opacity-90 active:scale-95 transition-all duration-150"
-          style={{ animationDelay: '0.3s' }}
+          style={{ width: '100%', maxWidth: '320px', padding: '16px', borderRadius: '18px', border: 'none', background: '#4a7c59', color: '#ffffff', fontSize: '16px', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 16px rgba(74,124,89,0.25)', fontFamily: 'Nunito, sans-serif' }}
         >
           ホームへ →
         </button>
@@ -450,10 +383,9 @@ export default function QuickStartPage() {
   // ── フォーム画面 ──────────────────────────────────────────
   const isOther = selectedActivity === 'other';
   const canSave = selectedActivity !== null && (selectedActivity !== 'other' || customActivity.trim().length > 0);
-  const hintText = selectedActivity && selectedActivity !== 'other' ? EXAMPLE_HINTS[selectedActivity] : null;
 
   return (
-    <div className="min-h-screen bg-[#0e0b1a] flex flex-col px-5 pt-12 pb-24">
+    <div className="min-h-screen flex flex-col px-5 pt-12 pb-24" style={{ background: '#f7f3ed' }}>
       {/* ── 達成バナー ── */}
       <div className="mb-10">
         <div
@@ -461,60 +393,28 @@ export default function QuickStartPage() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '14px 16px 12px',
+            padding: '20px 16px 16px',
             borderRadius: '24px',
-            background: 'linear-gradient(160deg, rgba(139,92,246,0.22) 0%, rgba(240,192,64,0.12) 100%)',
-            border: '1.5px solid rgba(240,192,64,0.35)',
-            boxShadow: '0 0 40px rgba(139,92,246,0.2), 0 0 20px rgba(240,192,64,0.1)',
-            marginBottom: '0px',
+            background: '#ffffff',
+            border: '1.5px solid #d4cabb',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
             textAlign: 'center',
           }}
         >
-          <p
-            style={{
-              color: '#f0c040',
-              fontSize: '11px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-              textShadow: '0 0 10px rgba(240,192,64,0.6)',
-            }}
-          >
-            ✦ Quest Complete ✦
+          <p style={{ color: '#6ba37a', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 600 }}>
+            Quest Complete
           </p>
-          <h1
-            style={{
-              fontSize: '32px',
-              fontWeight: 800,
-              background: 'linear-gradient(135deg, #f0c040 0%, #ffffff 50%, #c4a8f0 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              marginBottom: '8px',
-              lineHeight: 1.2,
-              textShadow: 'none',
-            }}
-          >
+          <h1 style={{ fontSize: '28px', fontWeight: 700, color: '#2d5a3d', fontFamily: 'Lora, serif', marginBottom: '8px', lineHeight: 1.3 }}>
             お疲れ様でした！
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>2問だけ答えて、チャレンジを始める</p>
+          <p style={{ color: '#7a7060', fontSize: '13px' }}>2問だけ答えて、チャレンジを始める</p>
         </div>
       </div>
 
       <section className="mb-9">
-        <label
-          style={{
-            display: 'block',
-            fontSize: '13px',
-            fontWeight: 600,
-            color: 'rgba(196,168,240,0.8)',
-            marginBottom: '10px',
-            letterSpacing: '0.04em',
-          }}
-        >
+        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4a7c59', marginBottom: '10px', letterSpacing: '0.04em' }}>
           ニックネーム
-          <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '12px', marginLeft: '8px', fontWeight: 400 }}>
-            （空欄で自動生成）
-          </span>
+          <span style={{ color: '#7a7060', fontSize: '12px', marginLeft: '8px', fontWeight: 400 }}>（空欄で自動生成）</span>
         </label>
         <input
           type="text"
@@ -524,30 +424,21 @@ export default function QuickStartPage() {
           maxLength={20}
           style={{
             width: '100%',
-            background: 'rgba(139,92,246,0.13)',
-            border: '1.5px solid rgba(139,92,246,0.5)',
+            background: '#ffffff',
+            border: '1.5px solid #d4cabb',
             borderRadius: '14px',
             padding: '17px 20px',
-            color: 'white',
+            color: '#2c2416',
             fontSize: '16px',
             outline: 'none',
             boxSizing: 'border-box',
+            fontFamily: 'Nunito, sans-serif',
           }}
-          className="focus:border-violet-400/80 focus:bg-violet-900/25 transition-all duration-150 placeholder-white/35"
         />
       </section>
 
       <section className="mb-9">
-        <label
-          style={{
-            display: 'block',
-            fontSize: '13px',
-            fontWeight: 600,
-            color: 'rgba(240,192,64,0.8)',
-            marginBottom: '12px',
-            letterSpacing: '0.04em',
-          }}
-        >
+        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4a7c59', marginBottom: '12px', letterSpacing: '0.04em' }}>
           今日やったこと
         </label>
         <div className="grid grid-cols-4 gap-2 mb-4">
@@ -564,31 +455,19 @@ export default function QuickStartPage() {
                   gap: '8px',
                   padding: '10px 4px',
                   borderRadius: '14px',
-                  border: active ? '1.5px solid rgba(139,92,246,0.8)' : '1.5px solid rgba(255,255,255,0.18)',
-                  background: active
-                    ? 'linear-gradient(135deg, rgba(139,92,246,0.25), rgba(109,40,217,0.12))'
-                    : 'rgba(255,255,255,0.07)',
+                  border: active ? '1.5px solid #4a7c59' : '1.5px solid #d4cabb',
+                  background: active ? 'rgba(74,124,89,0.10)' : '#ffffff',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
-                  boxShadow: active ? '0 0 18px rgba(139,92,246,0.4)' : 'none',
+                  boxShadow: active ? '0 2px 10px rgba(74,124,89,0.2)' : '0 1px 3px rgba(0,0,0,0.04)',
                   transform: active ? 'scale(1.04)' : 'scale(1)',
                 }}
               >
-                <span style={{ fontSize: '18px', filter: active ? 'drop-shadow(0 0 6px rgba(167,139,250,0.7))' : 'none' }}>
-                  {opt.emoji}
-                </span>
-                <span
-                  style={{
-                    fontSize: '10px',
-                    fontWeight: 600,
-                    color: active ? 'white' : 'rgba(255,255,255,0.65)',
-                    lineHeight: 1.2,
-                    textAlign: 'center',
-                  }}
-                >
+                <span style={{ fontSize: '18px' }}>{opt.emoji}</span>
+                <span style={{ fontSize: '10px', fontWeight: 600, color: active ? '#2d5a3d' : '#7a7060', lineHeight: 1.2, textAlign: 'center' }}>
                   {opt.label}
                 </span>
-                {active && <span style={{ fontSize: '9px', color: '#c4a8f0' }}>✦</span>}
+                {active && <span style={{ fontSize: '9px', color: '#4a7c59' }}>✓</span>}
               </button>
             );
           })}
@@ -601,19 +480,17 @@ export default function QuickStartPage() {
               gap: '8px',
               padding: '10px 4px',
               borderRadius: '14px',
-              border: isOther ? '1.5px solid rgba(240,192,64,0.7)' : '1.5px solid rgba(255,255,255,0.18)',
-              background: isOther
-                ? 'linear-gradient(135deg, rgba(240,192,64,0.2), rgba(245,158,11,0.08))'
-                : 'rgba(255,255,255,0.07)',
+              border: isOther ? '1.5px solid #6b9ab8' : '1.5px solid #d4cabb',
+              background: isOther ? 'rgba(107,154,184,0.10)' : '#ffffff',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
-              boxShadow: isOther ? '0 0 18px rgba(240,192,64,0.35)' : 'none',
+              boxShadow: isOther ? '0 2px 10px rgba(107,154,184,0.2)' : '0 1px 3px rgba(0,0,0,0.04)',
               transform: isOther ? 'scale(1.04)' : 'scale(1)',
             }}
           >
             <span style={{ fontSize: '18px' }}>✏️</span>
-            <span style={{ fontSize: '11px', fontWeight: 600, color: isOther ? 'white' : 'rgba(255,255,255,0.65)' }}>その他</span>
-            {isOther && <span style={{ fontSize: '9px', color: '#f0c040' }}>✦</span>}
+            <span style={{ fontSize: '11px', fontWeight: 600, color: isOther ? '#2d5a3d' : '#7a7060' }}>その他</span>
+            {isOther && <span style={{ fontSize: '9px', color: '#6b9ab8' }}>✓</span>}
           </button>
         </div>
 
@@ -627,34 +504,24 @@ export default function QuickStartPage() {
             autoFocus
             style={{
               width: '100%',
-              background: 'rgba(240,192,64,0.06)',
-              border: '1.5px solid rgba(240,192,64,0.3)',
+              background: '#ffffff',
+              border: '1.5px solid #6b9ab8',
               borderRadius: '14px',
               padding: '14px 18px',
-              color: 'white',
+              color: '#2c2416',
               fontSize: '16px',
               outline: 'none',
               boxSizing: 'border-box',
+              fontFamily: 'Nunito, sans-serif',
             }}
           />
         )}
       </section>
 
       <section className="mb-9">
-        <label
-          style={{
-            display: 'block',
-            fontSize: '13px',
-            fontWeight: 600,
-            color: 'rgba(196,168,240,0.7)',
-            marginBottom: '10px',
-            letterSpacing: '0.04em',
-          }}
-        >
+        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4a7c59', marginBottom: '10px', letterSpacing: '0.04em' }}>
           明日は何を５分やる？
-          <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '12px', marginLeft: '8px', fontWeight: 400 }}>
-            （任意）
-          </span>
+          <span style={{ color: '#7a7060', fontSize: '12px', marginLeft: '8px', fontWeight: 400 }}>（任意）</span>
         </label>
         <input
           type="text"
@@ -664,33 +531,22 @@ export default function QuickStartPage() {
           maxLength={50}
           style={{
             width: '100%',
-            background: 'rgba(139,92,246,0.13)',
-            border: '1.5px solid rgba(139,92,246,0.45)',
+            background: '#ffffff',
+            border: '1.5px solid #d4cabb',
             borderRadius: '14px',
             padding: '17px 20px',
-            color: 'white',
+            color: '#2c2416',
             fontSize: '16px',
             outline: 'none',
             boxSizing: 'border-box',
+            fontFamily: 'Nunito, sans-serif',
           }}
-          className="focus:border-violet-400/80 transition-all duration-150 placeholder-white/35"
         />
       </section>
 
       {error && (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '12px 16px',
-            borderRadius: '14px',
-            background: 'rgba(239,68,68,0.12)',
-            border: '1px solid rgba(239,68,68,0.3)',
-            marginBottom: '16px',
-          }}
-        >
-          <p style={{ color: '#f87171', fontSize: '14px' }}>{error}</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 16px', borderRadius: '14px', background: 'rgba(220,80,80,0.08)', border: '1px solid rgba(220,80,80,0.25)', marginBottom: '16px' }}>
+          <p style={{ color: '#b94040', fontSize: '14px' }}>{error}</p>
         </div>
       )}
 
@@ -704,19 +560,18 @@ export default function QuickStartPage() {
           fontSize: '17px',
           fontWeight: 700,
           letterSpacing: '0.03em',
-          color: 'white',
+          color: '#ffffff',
           border: 'none',
           cursor: canSave ? 'pointer' : 'not-allowed',
-          background: canSave
-            ? 'linear-gradient(135deg, #7c3aed 0%, #f59e0b 100%)'
-            : 'rgba(255,255,255,0.08)',
-          opacity: canSave ? 1 : 0.4,
-          boxShadow: canSave ? '0 4px 24px rgba(109,40,217,0.5)' : 'none',
+          background: canSave ? '#4a7c59' : '#b0bfb0',
+          opacity: canSave ? 1 : 0.6,
+          boxShadow: canSave ? '0 4px 16px rgba(74,124,89,0.25)' : 'none',
           transition: 'all 0.2s ease',
+          fontFamily: 'Nunito, sans-serif',
         }}
       >
         記録して、チャレンジ開始 →
       </button>
     </div>
-  )
+  );
 }

@@ -437,7 +437,7 @@ export default function WallPageClient({ challenges, daysMap, profileMap }: Prop
               }}>
                 <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                   <img
-                    src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/monkey-wizard.png"
+                    src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png"
                     alt="リアプレイ猿"
                     width={40}
                     height={40}
