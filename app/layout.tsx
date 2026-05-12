@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <span>ご意見</span>
         </a>
-        <MirrorButton />
+        {/* <MirrorButton /> */}
         <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px 100px', background: 'transparent' }}>
           {children}
         </div>

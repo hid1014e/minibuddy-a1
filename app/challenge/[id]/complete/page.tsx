@@ -87,7 +87,7 @@ export default function CompletePage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, background: 'rgba(15,23,41,0.5)', borderRadius: 12, padding: '12px 14px', marginBottom: 20, textAlign: 'left' }}>
           <img
             src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png"
-            alt="リアプレイ猿"
+            alt="ハリネズミ"
             style={{ width: 52, height: 52, objectFit: 'contain', flexShrink: 0, animation: 'monkeyBounce 2s ease-in-out infinite', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.5))' }}
           />
           <div style={{ fontSize: 13, color: '#2c2416', fontFamily: 'Nunito, sans-serif', fontWeight: 700, lineHeight: 1.6 }}>{monkeyLine}</div>

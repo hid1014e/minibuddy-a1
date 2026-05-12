@@ -78,7 +78,7 @@ function NewChallengeForm() {
       <div style={{ background: 'rgba(30,45,74,0.8)', border: '1px solid rgba(167,139,250,0.25)', borderRadius: 14, padding: '12px 16px', marginBottom: 20, animation: 'fadeUp 0.55s ease', display: 'flex', alignItems: 'center', gap: 12 }}>
         <div style={{ flexShrink: 0 }}><img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png" width={40} height={40} alt="" style={{ borderRadius: 8 }} /></div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 10, color: '#a78bfa', fontFamily: 'Cinzel, serif', letterSpacing: '0.08em', marginBottom: 3 }}>リアプレイ猿より</div>
+          <div style={{ fontSize: 10, color: '#a78bfa', fontFamily: 'Cinzel, serif', letterSpacing: '0.08em', marginBottom: 3 }}>ハリネズミより</div>
           <div style={{ fontSize: 12, color: '#c4a8f0', fontFamily: 'Nunito, sans-serif', fontWeight: 700, lineHeight: 1.6 }}>7日後、修行の結果を届けに来るぞ。<br />楽しみにしておけ。</div>
         </div>
       </div>

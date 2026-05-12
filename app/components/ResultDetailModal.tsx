@@ -143,7 +143,7 @@ export default function ResultDetailModal({ challenge, onClose }: Props) {
         </div>
 
         <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", backgroundColor: "rgba(196,160,255,0.07)", border: "1px solid rgba(196,160,255,0.15)", borderRadius: "14px", padding: "12px 14px", marginBottom: "20px" }}>
-          <img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png" alt="リアプレイ猿" style={{ width: 28, height: 28, objectFit: "contain", flexShrink: 0, marginTop: "2px" }} />
+          <img src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png" alt="ハリネズミ" style={{ width: 28, height: 28, objectFit: "contain", flexShrink: 0, marginTop: "2px" }} />
           <div style={{ fontSize: "12px", color: "#c8b8f0", lineHeight: 1.65, fontStyle: "italic" }}>
             {monkeyComment}
           </div>

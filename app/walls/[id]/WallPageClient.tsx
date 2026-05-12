@@ -438,12 +438,12 @@ export default function WallPageClient({ challenges, daysMap, profileMap }: Prop
                 <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                   <img
                     src="https://hgdwzaqujzjrozcryprg.supabase.co/storage/v1/object/public/post-images/characters/hari.png"
-                    alt="リアプレイ猿"
+                    alt="ハリネズミ"
                     width={40}
                     height={40}
                     style={{ borderRadius: '50%', border: '1px solid ' + S.goldDark, objectFit: 'cover' }}
                   />
-                  <p style={{ margin: 0, fontFamily: S.fontHeader, fontSize: '10px', color: S.goldDark, letterSpacing: '0.05em', textAlign: 'center' }}>— リアプレイ猿より —</p>
+                  <p style={{ margin: 0, fontFamily: S.fontHeader, fontSize: '10px', color: S.goldDark, letterSpacing: '0.05em', textAlign: 'center' }}>— ハリネズミより —</p>
                 </div>
                 <div>
                   <p style={{ margin: 0, fontSize: '12px', fontFamily: S.fontBody, color: S.inkDark, lineHeight: 1.9, whiteSpace: 'pre-line' }}>{monkeyComment}</p>
